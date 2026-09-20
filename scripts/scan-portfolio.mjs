@@ -303,7 +303,12 @@ function createProject(
     getFeatured(directory)
 
   return {
-    slug: slugify(name),
+    // Custom URL for Print & Promotional
+    // Display name remains unchanged.
+    slug:
+      name === "Print & Promotional"
+        ? "saad"
+        : slugify(name),
 
     name,
 

@@ -854,7 +854,7 @@ export const portfolio = [
     "featured": "/portfolio/Packaging/cover.jpeg"
   },
   {
-    "slug": "print-and-promotional",
+    "slug": "saad",
     "name": "Print & Promotional",
     "role": "Selected Work",
     "description": "Flyers, brochures, menus, posters, promotional materials, and print-focused communication design.",
