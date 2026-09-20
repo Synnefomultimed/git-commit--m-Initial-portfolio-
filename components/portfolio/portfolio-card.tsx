@@ -80,9 +80,9 @@ export function PortfolioCard({
               className="
                 absolute inset-0 z-[2]
                 bg-gradient-to-t
-                from-[#061412]/95
-                via-[#17201d]/35
-                to-[#17201d]/20
+                from-[#061412]/55
+                via-[#17201d]/10
+                to-transparent
               "
             />
 
@@ -111,73 +111,8 @@ export function PortfolioCard({
               "
             />
 
-            {/* TOP CATEGORY INDICATOR */}
-            <div className="absolute left-5 top-5 z-[10] md:left-6 md:top-6">
-              <div
-                className="
-                  inline-flex items-center gap-2
-                  rounded-full
-                  border border-white/20
-                  bg-[#061412]/65
-                  px-3 py-2
-                  shadow-[0_4px_20px_rgba(0,0,0,0.25)]
-                  backdrop-blur-md
-                "
-              >
-                <span className="h-[1px] w-6 bg-[#f5d77f]" />
-
-                <span
-                  className="
-                    text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-[0.28em]
-                    text-white
-                    drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]
-                  "
-                >
-                  {role}
-                </span>
-              </div>
-            </div>
-
-            {/* BOTTOM INFORMATION */}
-            <div className="absolute bottom-0 left-0 right-0 z-[10] flex items-end justify-between gap-4 p-5 md:p-6">
-
-              <div className="min-w-0">
-
-                <div
-                  className="
-                    inline-block
-                    rounded-2xl
-                    border border-white/10
-                    bg-[#061412]/55
-                    px-4 py-3
-                    shadow-[0_8px_30px_rgba(0,0,0,0.25)]
-                    backdrop-blur-md
-                  "
-                >
-                  <h3
-                    className="
-                      font-heading
-                      text-2xl
-                      font-bold
-                      leading-tight
-                      tracking-[-0.02em]
-                      text-white
-                      drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]
-                      transition-colors
-                      duration-500
-                      group-hover:text-[#f5d77f]
-                      md:text-3xl
-                    "
-                  >
-                    {name}
-                  </h3>
-                </div>
-
-              </div>
-
+            {/* ARROW ONLY */}
+            <div className="absolute bottom-5 right-5 z-[10] md:bottom-6 md:right-6">
               <span
                 className="
                   flex h-12 w-12 shrink-0 items-center justify-center
@@ -195,7 +130,6 @@ export function PortfolioCard({
               >
                 <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
-
             </div>
           </div>
 
@@ -211,7 +145,6 @@ export function PortfolioCard({
               md:p-6
             "
           >
-
             {/* SMALL TOP ACCENT */}
             <div
               className="
@@ -252,7 +185,6 @@ export function PortfolioCard({
 
             </div>
           </div>
-
         </article>
       </Link>
     </Reveal>
