@@ -1,0 +1,318 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sora), var(--font-geist-sans), "Geist Fallback";
+  --font-sans: var(--font-geist-sans), "Geist Fallback";
+  --font-mono: var(--font-geist-mono), "Geist Mono Fallback";
+
+  --color-gold: #b89445;
+  --color-gold-soft: #d6ad55;
+  --color-orange: #b89445;
+
+  --color-sea: #0f766e;
+  --color-sea-light: #2aa99a;
+  --color-sea-dark: #084c46;
+
+  --color-surface: #f4f2ec;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+
+  --radius: 0.75rem;
+
+  --background: #e8e6df;
+  --foreground: #17201d;
+
+  --card: #f4f2ec;
+  --card-foreground: #17201d;
+
+  --popover: #f4f2ec;
+  --popover-foreground: #17201d;
+
+  --primary: #b89445;
+  --primary-foreground: #ffffff;
+
+  --secondary: #dceae7;
+  --secondary-foreground: #084c46;
+
+  --muted: #deddd6;
+  --muted-foreground: #68736e;
+
+  --accent: #d9ebe7;
+  --accent-foreground: #084c46;
+
+  --destructive: #a94c43;
+
+  --border: rgba(23, 32, 29, 0.11);
+  --input: rgba(23, 32, 29, 0.10);
+  --ring: #b89445;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    background: #e8e6df;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+      radial-gradient(
+        circle at 8% 8%,
+        rgba(15, 118, 110, 0.10),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at 92% 12%,
+        rgba(184, 148, 69, 0.10),
+        transparent 25%
+      ),
+      linear-gradient(
+        135deg,
+        #e8e6df 0%,
+        #f0eee8 48%,
+        #e3e2dc 100%
+      );
+
+    color: #17201d;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #17201d;
+  }
+
+  ::selection {
+    background: rgba(184, 148, 69, 0.28);
+    color: #17201d;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(244, 242, 236, 0.78);
+    border: 1px solid rgba(23, 32, 29, 0.10);
+    color: #17201d;
+
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+
+    box-shadow:
+      0 10px 35px rgba(23, 32, 29, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
+
+  .glass-strong {
+    background: rgba(244, 242, 236, 0.92);
+    border: 1px solid rgba(23, 32, 29, 0.12);
+    color: #17201d;
+
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+
+    box-shadow:
+      0 15px 50px rgba(23, 32, 29, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .glass h1,
+  .glass h2,
+  .glass h3,
+  .glass h4,
+  .glass h5,
+  .glass h6,
+  .glass-strong h1,
+  .glass-strong h2,
+  .glass-strong h3,
+  .glass-strong h4,
+  .glass-strong h5,
+  .glass-strong h6 {
+    color: #17201d;
+  }
+
+  .glass p,
+  .glass-strong p {
+    color: #4f5a56;
+  }
+
+  .glow-gold {
+    box-shadow:
+      0 0 0 1px rgba(184, 148, 69, 0.20),
+      0 12px 45px rgba(184, 148, 69, 0.15);
+  }
+
+  .glow-text {
+    text-shadow:
+      0 4px 30px rgba(184, 148, 69, 0.20);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(
+      120deg,
+      #d6ad55 0%,
+      #a98035 45%,
+      #c9a653 75%,
+      #e0c477 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .heading-soft {
+    color: #4a5551;
+  }
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 70%,
+      transparent
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      #000 70%,
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .bg-white\/\[0\.035\] {
+    background: rgba(244, 242, 236, 0.72);
+  }
+
+  .bg-white\/\[0\.055\] {
+    background: rgba(244, 242, 236, 0.92);
+  }
+
+  .border-white\/10 {
+    border-color: rgba(23, 32, 29, 0.10);
+  }
+
+  .bg-black\/90 {
+    background: rgba(23, 32, 29, 0.18);
+  }
+
+  .bg-black\/80 {
+    background: rgba(23, 32, 29, 0.16);
+  }
+
+  .bg-black\/70 {
+    background: rgba(23, 32, 29, 0.14);
+  }
+}
+
+/* Capability icons */
+
+.capability-icon {
+  color: #1f7a6d !important;
+  stroke: #1f7a6d !important;
+  transition: all 300ms ease;
+}
+
+.group:hover .capability-icon {
+  color: #d6ad55 !important;
+  stroke: #d6ad55 !important;
+}
+/* =========================================
+   FIX WHITE TEXT ON LIGHT BACKGROUND
+   ========================================= */
+
+.text-white {
+  color: #17201d !important;
+}
+
+.text-white\/50 {
+  color: rgba(23, 32, 29, 0.50) !important;
+}
+
+.text-white\/60 {
+  color: rgba(23, 32, 29, 0.60) !important;
+}
+
+.text-white\/70 {
+  color: rgba(23, 32, 29, 0.70) !important;
+}
+
+.text-white\/80 {
+  color: rgba(23, 32, 29, 0.80) !important;
+}
+
+.text-white\/90 {
+  color: rgba(23, 32, 29, 0.90) !important;
+}
+
+/* Make icons visible */
+.capability-icon {
+  color: #1f7a6d !important;
+  stroke: #1f7a6d !important;
+}
+
+.group:hover .capability-icon {
+  color: #d6ad55 !important;
+  stroke: #d6ad55 !important;
+}
+
+/* General light-background text */
+body {
+  color: #17201d;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #17201d;
+}
